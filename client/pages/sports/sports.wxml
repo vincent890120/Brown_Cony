@@ -1,0 +1,25 @@
+<view>
+  <view class="container" bindtap='PunchCard'>   
+    <image class='bg_image' mode='scaleToFill' src="https://brownandcony-1254245823.cos.ap-shanghai.myqcloud.com/sport_view_bg.png"> </image>
+    <view class='content'>
+      <text class='days'>0</text>
+       <view class='camera_bg'>
+        <image class="camera" src="../../images/camera.png"></image>
+      </view> 
+       <view class='bubble_bg'>
+        <image class='bubble_image' mode="scaleToFill" src="../../images/bubble1.png"></image>
+        <view class='bubble_text'>点我打卡哦~</view>
+      </view> 
+    </view>
+  </view>
+  <view class='function_container'>
+    <view class='function_item'>
+      <image src="../../images/ic_main_mine_dairy.png"></image>
+      <text>健身日记</text>
+    </view>
+    <view class='function_item'>
+      <image mode='scaleToFill' src="../../images/ic_main_mine_plan.png"></image>
+      <text>我的计划</text>
+    </view>
+  </view>
+</view>

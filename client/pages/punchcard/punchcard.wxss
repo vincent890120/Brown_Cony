@@ -1,0 +1,72 @@
+page {
+  background: #f6f6f6;
+   display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+}
+/*打卡添加图片*/
+.container {
+  position: relative;
+  width: 100%;
+  height: 340px;
+}
+.bg_image{
+  position: absolute;
+  z-index: 80;
+  width: 100%;
+  height: 340px;
+}
+
+.content{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 100;
+  align-items: center;
+  width: 100%;
+  height: 340px;
+}
+/*相机*/
+
+.camera_bg {
+  background: #fff;
+  opacity: 0.8;
+  height: 90px;
+  width: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.camera_bg image {
+  width: 50px;
+  height: 45px;
+}
+
+/*天数*/
+
+.days {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  width: 80px;
+  padding: 10px;
+  color: #fff
+}
+
+/*打卡内容*/
+.content_container{
+  height: 180px;
+  margin: 10px;
+  border: 2rpx dashed #C0C0C0;
+  background: #fff
+}
+/**/
+.save_button{
+  margin: 10px;
+  background-color: #00BFFF;
+  position: absolute;
+  bottom: 0px;
+}

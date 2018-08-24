@@ -1,0 +1,16 @@
+<view>
+  <view class="container" bindtap='selectPic'>
+    <image class='bg_image' mode='scaleToFill' src="{{imgUrl}}"> </image>
+    <view class='content'>
+      <view class='camera_bg'>
+        <image src="../../images/ic_make_plan_take_photo.png"></image>
+      </view>
+      <view class='days'>第 1 天</view>
+    </view>
+  </view>
+  <view class='content_container'>
+    <text style='color:#00BFFF;font-size:13px;padding-top:10px;padding-left:10px'>#健身打卡# </text>
+    <text style='font-size:13px'>第一天</text>
+  </view>
+  <button type='primary' style='margin:10px;background-color:#00BFFF;' bindtap='commit'> 保存到健身日记</button>
+</view>

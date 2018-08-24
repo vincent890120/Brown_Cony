@@ -1,0 +1,110 @@
+page {
+  background: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+/*打卡模块*/
+.container {
+  position: relative;
+  width: 100%;
+  height: 340px;
+}
+.bg_image{
+  position: absolute;
+  z-index: 80;
+  width: 100%;
+  height: 340px;
+}
+.content{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 100;
+  align-items: center;
+  width: 100%;
+  height: 340px;
+}
+.days{
+  font-size:150px;
+  height:180px
+}
+.camera_bg {
+  background: #fff;
+  height: 35px;
+  width: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-radius: 15px;
+}
+
+.camera {
+  width: 25px;
+  height: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.bubble_bg {
+  margin-top: 10px;
+  width: 120px;
+  height: 40px;
+  position: relative;
+}
+
+.bubble_text {
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  z-index: 2;
+  left: 25px;
+  top: 14px;
+  font-size: 13px;
+  color: #b3b3b3;
+}
+
+.bubble_image {
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  z-index: 2;
+  left: 0;
+  top: 0;
+}
+
+/*功能区背景*/
+
+.function_container {
+  margin-top: 20px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background: #fff;
+}
+
+.function_container .function_item {
+  float: left;
+  width: 50%;
+  height: 80px;
+  text-align: center;
+}
+
+.function_container .function_item image {
+  margin-top: 24px;
+  width: 25px;
+  height: 30px;
+}
+
+.function_container .function_item text {
+  display: block;
+  color: #b3b3b3;
+  margin-top: 5px;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
