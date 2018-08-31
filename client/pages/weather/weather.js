@@ -17,6 +17,7 @@ Page({
   data: {
     isIPhoneX: globalData.isIPhoneX,
     bcgImgList: [
+      '/images/timg.jpeg',
       '/images/backlit-dawn-dusk-327466.jpg',
       '/images/back-view-beautiful-bloom-906002.jpg',
       '/images/afterglow-background-beautiful-552791.jpg',
@@ -32,7 +33,8 @@ Page({
     enableSearch: true,
     // 用来清空 input
     searchText: '',
-
+    // 是否切换了城市
+    cityChanged: false,
   },
 
   /**
@@ -51,7 +53,19 @@ Page({
    */
   onShow: function() {
     this.setBcgImg();
-
+    this.getCityDatas();
+    if (!this.data.cityChanged) {
+      this.init({})
+    } else {
+      this.search(this.data.searchCity)
+      this.setData({
+        cityChanged: false,
+        searchCity: '',
+      })
+    }
+    this.setData({
+      message: messages.messages(),
+    })
   },
 
   /**
@@ -126,5 +140,107 @@ Page({
     this.setData({
       bcgImgAreaShow: false,
     })
+  },
+  chooseBcg(e) {
+    let dataset = e.currentTarget.dataset
+    let src = dataset.src
+    let index = dataset.index
+    this.setBcgImg(index)
+    wx.setStorage({
+      key: 'bcgImageIndex',
+      data: index,
+    })
+  },
+  //通过Storage获取城市信息
+  getCityDatas() {
+    let cityDatas = wx.getStorage({
+      key: 'cityDatas',
+      success: (res) => {
+        this.setData({
+          cityDatas: res.data,
+        })
+      },
+    })
+  },
+  //通过百度API，获取天气信息
+  init(params) {
+    let BMap = new bmap.BMapWX({
+      ak: globalData.ak,
+    })
+    BMap.weather({
+      location: params.location,
+      fail: this.fail,
+      success: this.success,
+    })
+  },
+  //
+  success(data) {
+    console.log(data) 
+
+    this.setData({
+      openSettingButtonShow: false,
+    })
+    wx.stopPullDownRefresh()
+    let now = new Date()
+    // 存下来源数据
+    data.updateTime = now.getTime()
+    data.updateTimeFormat = utils.formatDate(now, "MM-dd hh:mm")
+    let results = data.originalData.results[0] || {}
+    data.pm = this.calcPM(results['pm25'])
+    // 当天实时温度
+    data.temperature = `${results.weather_data[0].date.match(/\d+/g)[2]}`
+    wx.setStorage({
+      key: 'cityDatas',
+      data: data,
+    })
+    this.setData({
+      cityDatas: data,
+    })
+  },
+  //PM 2.5的数值对应的提示
+  calcPM(value) {
+    if (value > 0 && value <= 50) {
+      return {
+        val: value,
+        desc: '优',
+        detail: '',
+      }
+    } else if (value > 50 && value <= 100) {
+      return {
+        val: value,
+        desc: '良',
+        detail: '',
+      }
+    } else if (value > 100 && value <= 150) {
+      return {
+        val: value,
+        desc: '轻度污染',
+        detail: '对敏感人群不健康',
+      }
+    } else if (value > 150 && value <= 200) {
+      return {
+        val: value,
+        desc: '中度污染',
+        detail: '不健康',
+      }
+    } else if (value > 200 && value <= 300) {
+      return {
+        val: value,
+        desc: '重度污染',
+        detail: '非常不健康',
+      }
+    } else if (value > 300 && value <= 500) {
+      return {
+        val: value,
+        desc: '严重污染',
+        detail: '有毒物',
+      }
+    } else if (value > 500) {
+      return {
+        val: value,
+        desc: '爆表',
+        detail: '能出来的都是条汉子',
+      }
+    }
   },
 })

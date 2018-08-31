@@ -19,4 +19,7 @@ App({
     isIPhoneX: false,
     ak: 'PAszsF2qYLQIgynREfCKpaF7arwVZic8',
   },
+  setGeocoderUrl(address) {
+    return `https://api.map.baidu.com/geocoder/v2/?address=${address}&output=json&ak=${this.globalData.ak}`
+  },
 })
