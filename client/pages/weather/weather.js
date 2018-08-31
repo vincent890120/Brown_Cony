@@ -16,6 +16,12 @@ Page({
    */
   data: {
     isIPhoneX: globalData.isIPhoneX,
+    icons: ['/images/clothing.png',
+      '/images/carwashing.png',
+      '/images/pill.png',
+      '/images/running.png',
+      '/images/sun.png'
+    ],
     bcgImgList: [
       '/images/timg.jpeg',
       '/images/backlit-dawn-dusk-327466.jpg',
@@ -175,7 +181,7 @@ Page({
   },
   //
   success(data) {
-    console.log(data) 
+    console.log(data)
 
     this.setData({
       openSettingButtonShow: false,

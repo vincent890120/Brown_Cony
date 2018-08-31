@@ -14,13 +14,13 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "selectedColor": "#1296db",
+    "selectedColor": "#d81e06",
     "list": [
       {
         "pagePath": "pages/weather/weather",
         "text": "天气",
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home.png"
+        "iconPath": "images/weathertab.png",
+        "selectedIconPath": "images/weathertab.png"
       },
       {
         "pagePath": "pages/sports/sports",

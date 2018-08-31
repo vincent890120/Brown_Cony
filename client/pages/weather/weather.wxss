@@ -156,6 +156,7 @@ page {
 }
 .info .weather {
   margin-bottom: 30rpx;
+  font-size: 1.5rem
 }
 .info .pm text {
   font-size: 24rpx;
@@ -192,7 +193,7 @@ page {
   box-sizing: border-box;
 }
 .temp {
-  height: 360rpx;
+  height: 250rpx;
   font-size: 200rpx;
 }
 .guide {

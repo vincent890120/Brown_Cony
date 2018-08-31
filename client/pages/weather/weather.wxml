@@ -40,6 +40,24 @@
         <text>{{cityDatas.pm.desc}} {{cityDatas.pm.val}}</text>
       </view>
     </view>
+     <view class='guide' wx:if='{{cityDatas.originalData.results[0].weather_data}}'>
+      <view class='item' wx:for='{{cityDatas.originalData.results[0].weather_data}}' wx:key='{{index}}'>
+        <view class='date i'>{{index === 0 ? '今天' : item.date}}</view>
+        <view class='temperature i'>{{item.temperature}}</view>
+        <image class='i' src='{{item.dayPictureUrl}}' mode='widthFix'></image> 
+        <image class='i' src='{{item.nightPictureUrl}}' mode='widthFix'></image>
+        <view class='weather i'>{{item.weather}}</view>
+        <view class='wind i'>{{item.wind}}</view>
+      </view>
+    </view>
+    <view class='livingIndex' wx:if='{{cityDatas.originalData.results[0].index && !setting.hiddenIndex}}'>
+      <view class='item' wx:for='{{cityDatas.originalData.results[0].index}}' wx:key='{{index}}'>
+        <image class='icon' src='{{icons[index]}}'></image>
+        <view class='right'>
+          <view class='key'>{{item.tipt}} {{item.zs}}</view>
+          <view class='value'>{{item.des}}</view>
+        </view>
+      </view>
+    </view>
   </view>
-
 </view>
